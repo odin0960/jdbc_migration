@@ -21,7 +21,7 @@ CREATE TABLE IF NOT EXISTS project (
 	start_date DATE DEFAULT CURRENT_DATE(),
 	finish_date DATE,
 	CONSTRAINT client_id_fk 
-	FOREIGN KEY (client_id) REFERENCES client(id) ON DELETE RESTRICT
+	FOREIGN KEY (client_id) REFERENCES client(id)
 );
 
 CREATE TABLE IF NOT EXISTS project_worker (
