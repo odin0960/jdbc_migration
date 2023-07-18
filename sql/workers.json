@@ -1,0 +1,92 @@
+[
+ {
+   "name": "Ivan Petrenko",
+   "birthday": "1969-01-02",
+   "level": "Junior",
+   "salary": 5000
+ },
+ {
+   "name": "Semen Semenchenko",
+   "birthday": "1999-04-13",
+   "level": "Senior",
+   "salary": 55000
+ },
+ {
+   "name": "Petro Ivanov",
+   "birthday": "1979-11-22",
+   "level": "Trainee",
+   "salary": 1000
+ },
+ {
+   "name": "Alex Petrov",
+   "birthday": "2000-12-12",
+   "level": "Trainee",
+   "salary": 850
+ },
+ {
+   "name": "Oleg Gerasimenko",
+   "birthday": "1985-01-02",
+   "level": "Middle",
+   "salary": 15000
+ },
+ {
+   "name": "Andriy Shevchenko",
+   "birthday": "1988-08-21",
+   "level": "Senior",
+   "salary": 33333
+ },
+ {
+   "name": "Vlad Vaschuk",
+   "birthday": "1992-06-22",
+   "level": "Junior",
+   "salary": 3500
+ },
+ {
+   "name": "Serhiy Petrenko",
+   "birthday": "1999-03-08",
+   "level": "Middle",
+   "salary": 15000
+ },
+ {
+   "name": "Denys Popov",
+   "birthday": "1995-05-10",
+   "level": "Junior",
+   "salary": 4400
+ },
+ {
+   "name": "Oleksandr Karavayev",
+   "birthday": "2002-02-25",
+   "level": "Trainee",
+   "salary": 850
+ },
+ {
+   "name": "Denys Harmash",
+   "birthday": "1977-04-30",
+   "level": "Senior",
+   "salary": 38500
+ },
+ {
+   "name": "Vladyslav Vanat",
+   "birthday": "1988-09-22",
+   "level": "Middle",
+   "salary": 15000
+ },
+ {
+   "name": "Denys Boyko",
+   "birthday": "1998-10-10",
+   "level": "Junior",
+   "salary": 3000
+ },
+ {
+   "name": "Nazar Voloshyn",
+   "birthday": "1993-11-15",
+   "level": "Middle",
+   "salary": 28000
+ },
+ {
+   "name": "Heorhiy Bushchan",
+   "birthday": "1985-07-18",
+   "level": "Senior",
+   "salary": 55000
+ }
+]
