@@ -5,6 +5,7 @@ import jdbc_update.entities.*;
 import jdbc_update.instances.*;
 
 import java.io.IOException;
+import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.List;
 
@@ -12,6 +13,7 @@ public class App {
     public static void main(String[] args) throws IOException, SQLException {
 
         Database database = Database.getInstance();
+        Connection connection = database.getConnection();
 
         new DatabaseInitService().initDb(database);
 
@@ -19,8 +21,16 @@ public class App {
 
 //        worker.getClass().getSimpleName()
         List<Worker> workers = Utilities.getListFromJson(DatabasePopulateService.WORKERS, Worker.class);
-        for (Worker worker : workers) {
-            populate.populateWorkers(database, worker);
+        connection.setAutoCommit(false);
+        try {
+            for (Worker worker : workers) {
+                populate.populateWorkers(database, worker);
+            }
+            connection.commit();
+        } catch (Exception ex) {
+            connection.rollback();
+        } finally {
+            connection.setAutoCommit(true);
         }
 
         List<Client> clients = Utilities.getListFromJson(DatabasePopulateService.CLIENTS, Client.class);
