@@ -1,22 +1,24 @@
 package jdbc;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
-import java.sql.Statement;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.apache.log4j.BasicConfigurator;
+
+import java.sql.*;
 
 public class Database {
-
-    private static final Database INSTANCE = new Database();
-
+    private static final Logger LOGGER = LoggerFactory.getLogger(Database.class);
+    public static final Database INSTANCE = new Database();
     private Connection connection;
 
     private Database() {
+        BasicConfigurator.configure();
         try {
             String dbUrl = new Settings().getString(Settings.DB_JDBC_CONNECTION_URL);
             connection = DriverManager.getConnection(dbUrl);
+            LOGGER.info("Connection is successful");
         } catch (Exception ex) {
-            ex.printStackTrace();
+            LOGGER.error("Connection problem...", ex);
         }
     }
 
@@ -28,7 +30,7 @@ public class Database {
         try (Statement stmt = connection.createStatement()) {
             return stmt.executeUpdate(sql);
         } catch (Exception ex) {
-            ex.printStackTrace();
+            LOGGER.error("Problem with update...", ex);
 
             return -1;
         }
@@ -41,8 +43,8 @@ public class Database {
     public void close() {
         try {
             connection.close();
-        } catch (SQLException e) {
-            e.printStackTrace();
+        } catch (SQLException ex) {
+            LOGGER.error("Connection is not closed...", ex);
         }
     }
 }

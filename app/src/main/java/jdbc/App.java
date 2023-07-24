@@ -2,17 +2,21 @@ package jdbc;
 
 import jdbc.DatabaseServices.*;
 import jdbc.instances.*;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.List;
 
-public class App {
-    public static void main(String[] args) throws IOException, SQLException {
 
-        Database database = Database.getInstance();
-        Connection connection = database.getConnection();
+public class App {
+    private static final Logger LOGGER = LoggerFactory.getLogger(Database.class);
+
+    public static void main(String[] args) throws SQLException, IOException {
+
+        Connection connection = Database.getInstance().getConnection();
 
         String dbUrl = new Settings().getString(Settings.DB_JDBC_CONNECTION_URL);
 
@@ -20,15 +24,19 @@ public class App {
 
         ClientService clientService = new ClientService(connection);
 
-        long id = clientService.create("Epsilon");
-        System.out.println(id);
-        System.out.println(clientService.getById(id)); //Epsilon
+//        String name = "I";
+//        String name = "BiggestName".repeat(100);
+        String name = "Epsilon";
+        long id = clientService.create(name);
+        LOGGER.info(String.valueOf(id));
+        LOGGER.info(clientService.getById(id)); //Epsilon
         String newName = "Upsilon";
         clientService.setName(id, newName);
-        System.out.println(clientService.getById(id)); //Upsilon
+        LOGGER.info(clientService.getById(id)); //Upsilon
         clientService.deleteById(id);
-        System.out.println(clientService.getById(id)); //null
-        System.out.println(clientService.listAll());
+        if (clientService.getById(id) == null)
+            LOGGER.info("Deleted"); //null
+        clientService.listAll().stream().map(String::valueOf).forEach(LOGGER::info);
 
         List<MaxSalaryWorker> maxSalaryWorker = new DatabaseQueryService().findMaxSalaryWorker();
         List<MaxProjectCountClient> maxProjectCountClients = new DatabaseQueryService().findMaxProjectsClient();
@@ -36,10 +44,10 @@ public class App {
         List<YoungestEldestWorker> youngestEldestWorker = new DatabaseQueryService().findYoungestEldestWorker();
         List<ProjectPrices> projectPrices = new DatabaseQueryService().printProjectPrices();
 
-        maxSalaryWorker.forEach(System.out::println);
-        maxProjectCountClients.forEach(System.out::println);
-        longestProject.forEach(System.out::println);
-        youngestEldestWorker.forEach(System.out::println);
-        projectPrices.forEach(System.out::println);
+        maxSalaryWorker.forEach(x -> LOGGER.info(String.valueOf(x)));
+        maxProjectCountClients.forEach(x -> LOGGER.info(String.valueOf(x)));
+        longestProject.forEach(x -> LOGGER.info(String.valueOf(x)));
+        youngestEldestWorker.forEach(x -> LOGGER.info(String.valueOf(x)));
+        projectPrices.forEach(x -> LOGGER.info(String.valueOf(x)));
     }
 }

@@ -19,11 +19,8 @@ repositories {
 dependencies {
     implementation 'org.jetbrains:annotations:24.0.0'
 
-    // https://mvnrepository.com/artifact/org.junit.jupiter/junit-jupiter-api
-    implementation 'org.junit.jupiter:junit-jupiter:5.9.3'
-    testImplementation 'org.junit.jupiter:junit-jupiter:5.8.1'
-
     // https://mvnrepository.com/artifact/org.junit.jupiter/junit-jupiter
+    implementation 'org.junit.jupiter:junit-jupiter:5.9.3'
     testImplementation 'org.junit.jupiter:junit-jupiter:5.9.3'
 
     // https://mvnrepository.com/artifact/org.junit.jupiter/junit-jupiter-api
@@ -55,7 +52,16 @@ dependencies {
     implementation 'org.slf4j:slf4j-api:2.0.7'
 
     // https://mvnrepository.com/artifact/org.slf4j/slf4j-log4j12
-    testImplementation 'org.slf4j:slf4j-log4j12:2.0.7'
+    implementation 'org.slf4j:slf4j-log4j12:2.0.7'
+    // https://mvnrepository.com/artifact/org.slf4j/slf4j-reload4j
+//    testImplementation 'org.slf4j:slf4j-reload4j:2.0.7'
+
+
+    // https://mvnrepository.com/artifact/ch.qos.reload4j/reload4j
+    implementation 'ch.qos.reload4j:reload4j:1.2.25'
+
+
+
 }
 
 // Apply a specific Java toolchain to ease working on different environments.

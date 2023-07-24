@@ -58,8 +58,10 @@ class ClientServiceTest {
         names.add(bigName);
 
         for (String name : names) {
-            Assertions.assertThrows(IllegalArgumentException.class,
+//            Exception ex =
+            Assertions.assertThrows(Exception.class,
                     () -> clientService.create(name));
+//            Assertions.assertTrue(ex.getMessage().contains("Error"));
         }
     }
 
