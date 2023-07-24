@@ -1,2 +1,2 @@
-# jdbc_update
-jdbc_java_dev_module_5
+# jdbc_migration
+jdbc_java_dev_module_6

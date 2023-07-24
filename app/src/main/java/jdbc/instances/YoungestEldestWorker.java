@@ -1,4 +1,4 @@
-package jdbc_update.instances;
+package jdbc.instances;
 
 import lombok.Data;
 

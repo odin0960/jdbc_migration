@@ -1,4 +1,4 @@
-CREATE TABLE IF NOT EXISTS worker (
+CREATE TABLE worker (
 	id BIGINT PRIMARY KEY AUTO_INCREMENT,
 	name VARCHAR (1000) NOT NULL,
 	birthday DATE,
@@ -9,13 +9,13 @@ CREATE TABLE IF NOT EXISTS worker (
 	CONSTRAINT check_salary_worker CHECK (salary>=100.00 AND salary<=100000.00)
 );
 
-CREATE TABLE IF NOT EXISTS client (
+CREATE TABLE client (
 	id BIGINT PRIMARY KEY AUTO_INCREMENT,
 	name VARCHAR (1000) NOT NULL,
 	CONSTRAINT length_client_name CHECK (CHAR_LENGTH(name) >= 2)
 );
 
-CREATE TABLE IF NOT EXISTS project (
+CREATE TABLE project (
 	id BIGINT PRIMARY KEY AUTO_INCREMENT,
 	client_id BIGINT,
 	start_date DATE DEFAULT CURRENT_DATE(),
@@ -24,12 +24,12 @@ CREATE TABLE IF NOT EXISTS project (
 	FOREIGN KEY (client_id) REFERENCES client(id)
 );
 
-CREATE TABLE IF NOT EXISTS project_worker (
+CREATE TABLE project_worker (
 	project_id BIGINT,
 	worker_id BIGINT,
 	PRIMARY KEY (project_id, worker_id),
 	CONSTRAINT project_id_fk 
-	FOREIGN KEY (project_id) REFERENCES project(id) ON DELETE RESTRICT,
+	FOREIGN KEY (project_id) REFERENCES project(id),
 	CONSTRAINT worker_id_fk 
-	FOREIGN KEY (worker_id) REFERENCES worker(id) ON DELETE RESTRICT
+	FOREIGN KEY (worker_id) REFERENCES worker(id)
 );

@@ -1,8 +1,6 @@
-package jdbc_update.entities;
+package jdbc.entities;
 
 import lombok.Data;
-
-import java.sql.Date;
 
 @Data
 public class Worker {

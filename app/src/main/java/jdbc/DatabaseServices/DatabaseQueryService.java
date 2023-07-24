@@ -1,8 +1,8 @@
-package jdbc_update.DatabaseServices;
+package jdbc.DatabaseServices;
 
-import jdbc_update.Database;
-import jdbc_update.Utilities;
-import jdbc_update.instances.*;
+import jdbc.Database;
+import jdbc.Utilities;
+import jdbc.instances.*;
 
 import java.io.IOException;
 import java.sql.ResultSet;
@@ -23,8 +23,6 @@ public class DatabaseQueryService {
 
     public DatabaseQueryService() throws SQLException {
     }
-
-    //    public <T> List<T> execute(String sql, Class<T> clazz) throws IOException, InterruptedException {
 
     public List<MaxSalaryWorker> findMaxSalaryWorker() throws IOException {
 

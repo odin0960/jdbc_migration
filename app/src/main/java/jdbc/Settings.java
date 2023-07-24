@@ -1,4 +1,4 @@
-package jdbc_update;
+package jdbc;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
