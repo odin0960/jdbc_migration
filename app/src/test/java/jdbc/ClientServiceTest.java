@@ -33,7 +33,7 @@ class ClientServiceTest {
     }
 
     @Test
-    void testThatClientCreatedCorrectly() throws SQLException {
+    void testThatClientCreatedCorrectly() {
 
         //Setup
         //        Client client = new Client();
@@ -66,7 +66,7 @@ class ClientServiceTest {
     }
 
     @Test
-    void testThatSetNameCorrectly() throws SQLException {
+    void testThatSetNameCorrectly() {
         //Setup
         String name = "TestName";
         long id = clientService.create(name);
@@ -80,7 +80,7 @@ class ClientServiceTest {
     }
 
     @Test
-    void testThatSetNewNameThrowsExceptionForWrongName() throws SQLException {
+    void testThatSetNewNameThrowsExceptionForWrongName() {
         long id = clientService.create("TestName");
         List<String> names = new ArrayList<>();
         String smallName = "I";
@@ -96,7 +96,7 @@ class ClientServiceTest {
     }
 
     @Test
-    void testThatClientDeleteCorrectly() throws SQLException {
+    void testThatClientDeleteCorrectly() {
         String name = "TestName";
         long id = clientService.create(name);
 
@@ -106,7 +106,7 @@ class ClientServiceTest {
     }
 
     @Test
-    void listAllTest() throws SQLException {
+    void listAllTest() {
         Client client = new Client();
         String name = "TestName";
         client.setName(name);
